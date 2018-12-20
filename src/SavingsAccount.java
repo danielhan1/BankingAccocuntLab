@@ -28,13 +28,17 @@ public class SavingsAccount extends BankAccount
 	}
 	public void withdraw(double amt)
 	{
+		if(amt < 0)
+		{
+			throw new IllegalArgumentException();
+		}
 		if(getBalance() < 0)
 		{
 			throw new IllegalArgumentException();
 		}
 		else if (getBalance() - amt < MIN_BAL)
 		{
-			amt+= MIN_BAL_FEE;
+			amt-= MIN_BAL_FEE;
 			super.withdraw(amt);
 		}
 	}
@@ -52,16 +56,14 @@ public class SavingsAccount extends BankAccount
 			}
 		}
 	}
-	public double addInterest(int i)
+	public void addInterest()
 	{
-		double interest = 1 - i;
-		
-		
+		super.deposit(intRate * getBalance());
 	}
 	
-	@Override
-	public void endofMonthupdate() {
-	balance = getBalance().deposit(i);
-
+	
+	public void endofMonthupdate() 
+	{
+		addInterest();
 	}
 }

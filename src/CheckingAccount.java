@@ -32,6 +32,7 @@ public class CheckingAccount extends BankAccount
 			{
 				numTransactions++;
 				deposit(amt);
+				//trans fee happens here
 			}
 		}
 		public void withdraw(double amt)
