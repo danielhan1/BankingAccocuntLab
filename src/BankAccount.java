@@ -3,6 +3,7 @@ public abstract class BankAccount
 {
 	//instance variables
 	private String name;
+	private static int nextacctNum;
 	private int acctNum;
 	private double balance;
 	
@@ -10,13 +11,15 @@ public abstract class BankAccount
 	public BankAccount (String n)
 	{
 		this.name = n;
-		//acctNum
+		acctNum = nextacctNum;
+		acctNum++;
 		balance = 0;
 	}
 	public BankAccount (String n, double b)
 	{
 		this.name = n;
-		//acctNum
+		acctNum = nextacctNum;
+		acctNum++;
 		balance = b;
 	}
 	//methods
@@ -28,7 +31,7 @@ public abstract class BankAccount
 	{
 		balance = balance - amt;
 	}
-	public String GetName()
+	public String getName()
 	{
 		return name;
 	}
