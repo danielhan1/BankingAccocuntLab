@@ -39,7 +39,7 @@ public abstract class BankAccount
 	{
 		return balance;
 	}
-	public abstract void endofMonthupdate();
+	public abstract void endOfMonthUpdate();
 	
 	public void transfer(BankAccount other, double amt)
 	{
