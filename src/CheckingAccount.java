@@ -57,7 +57,7 @@ public void withdraw (double amt)
 		{
 			super.withdraw(TRANSACTION_FEE);
 		}
-		else if (getBalance() < 0)
+		if (getBalance() < 0)
 		{
 			super.withdraw(OVER_DRAFT_FEE);
 		}
@@ -66,13 +66,14 @@ public void withdraw (double amt)
 }
 public void transfer (BankAccount other, double amt)
 {
-	if (!getName().equals(other.getName()))
+	if (getName().equals(other.getName()) && getBalance() >= amt)
 	{
-		throw new IllegalArgumentException();
+		super.transfer(other,amt);
 	}
 	else
 	{
-		super.transfer(other,amt);
+		
+		throw new IllegalArgumentException();
 	}
 }
 public void endOfMonthUpdate()
