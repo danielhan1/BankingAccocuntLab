@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import java.util.Scanner;
 /**
  * 
@@ -20,18 +21,54 @@ public class MainClass
 		Scanner in = new Scanner(System.in);
 		method = in.next();
 		{
-		System.out.println("Do you want to add an account, make a transaction, or terminate this program?");
+		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'c' terminate this program?");
 		in.nextLine();
-		while(!method.equals("add an account") && !method.equals("make a transaction") && !method.equals("terminate this program") && !method.equals("Add an account") &&  !method.equals("Make a transaction") &&  !method.equals("Terminate this program"));
+		while(!method.equals("a") && !method.equals("b") && !method.equals("c"));
 		{
 			System.out.println("Invalid. Please try again");
 			method = in.next();
 			in.nextLine();
 		}
-		if(method.equals("add an account") && method.equals("Add an account"));
+		switch (method) {
+			case "a": 
+				while (method.equals("a"))
+				{
+				System.out.println("Would you like to create 'c' a Checking account or 's' a Savings account?");
+				method = in.next();
+				in.nextLine();
+					switch(method) {
+					case "c":
+							System.out.println("What would you like to name your account?");
+							String name = in.next();
+							System.out.println("Would you like to make an initial deposit? (y/n)");
+							String decision = in.next();
+							if (decision.equals("y"))
+							{
+								System.out.println("Please enter the amount you would like to deposit");
+								double amount = in.next();
+								
+								
+							}
+					case "s":
+						
+					}
+				}
+			case "b":
+				while (method.equals("b"))
+				{
+				System.out.println();
+				}	 
+			case "c":
+			{
+				System.out.println("Terminated");
+			}
+		{
+			
 		}
-	
+		}
+		
 	
 	
 }
+	}
 }
