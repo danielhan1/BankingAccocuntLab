@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Daniel Han
  * PD 7
  */
-public class MainClass
+public class MainClass //you need a break (the last line of every case)
 {
 	public static void main(String[] args)
 	{
@@ -45,10 +45,9 @@ public class MainClass
 							if (decision.equals("y"))
 							{
 								System.out.println("Please enter the amount you would like to deposit");
-								double amount = in.next();
-								
-								
+								double amt = in.nextDouble();
 							}
+							
 					case "s":
 						
 					}
