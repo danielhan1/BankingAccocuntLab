@@ -1,4 +1,7 @@
-
+/**
+ * Daniel Han
+ * Pd. 7
+ */
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -9,6 +12,7 @@ import java.util.Scanner;
  */
 public class MainClass //you need a break (the last line of every case)
 {
+	private static final int  = 0;
 	private static boolean isNumeric (String str)
 	{
 		try
@@ -29,7 +33,7 @@ public class MainClass //you need a break (the last line of every case)
 		double TRANSACTION_FEE = 1.5;
 		int MIN_BAL = 300;
 		int MIN_BAL_FEE = 10;
-		int FREE_TRANSACTIONS = 10;
+		int FREE_TRANS = 10;
 		String method;
 		Scanner in = new Scanner(System.in);
 		method = in.next();
@@ -53,7 +57,8 @@ public class MainClass //you need a break (the last line of every case)
 				System.out.println("Would you like to create 'c' a Checking account or 's' a Savings account?");
 				method = in.next();
 				in.nextLine();
-					switch(method) {
+					switch(method)
+					{
 					case "c":
 					{
 						System.out.println("What is your name?: ");
@@ -65,7 +70,7 @@ public class MainClass //you need a break (the last line of every case)
 							System.out.println("Invalid response, please try again (y/n)");
 							choice = in.nextLine();
 						}
-						if (choice.equals("y"));
+						else if (choice.equals("y"))
 						{
 							System.out.println("How much would you like to deposit?:");
 							initialBal = in.nextLine();
@@ -75,9 +80,20 @@ public class MainClass //you need a break (the last line of every case)
 								System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
 								initialBal = in.nextLine();
 							}
-						
+							double initialBalance = Double.parseDouble(initialBal);
+							balance = initialBalance + balance;
 						}
+						else
+						{
+							balance = 0;
+						}
+						CheckingAccount account = new CheckingAccount(name, balance, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANS);
+						accounts.add(account);
+						
+						break;
 					}
+					}
+				}
 					case "s":
 					{
 						System.out.println("What is your name?: ");
@@ -121,6 +137,30 @@ public class MainClass //you need a break (the last line of every case)
 						
 						break;
 					}
+					
+		}
+				}
+			case "b":
+				while (method.equals("b"))
+				{
+				System.out.println();
+				}	 
+			case "c":
+			{
+				System.out.println("Terminated");
+			}
+		
+		}
+		
+	
+	
+}
+	}
+}
+	
+}
+	}
+}
 					
 					}
 				}
