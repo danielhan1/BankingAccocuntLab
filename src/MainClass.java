@@ -1,7 +1,4 @@
-/**
- * Daniel Han
- * Pd. 7
- */
+
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -12,7 +9,6 @@ import java.util.Scanner;
  */
 public class MainClass //you need a break (the last line of every case)
 {
-	private static final int  = 0;
 	private static boolean isNumeric (String str)
 	{
 		try
@@ -44,7 +40,7 @@ public class MainClass //you need a break (the last line of every case)
 		{
 		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'c' terminate this program?");
 		in.nextLine();
-		while(!method.equals("a") && !method.equals("b") && !method.equals("c"));
+		while(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
 		{
 			System.out.println("Invalid. Please try again");
 			method = in.next();
@@ -52,13 +48,12 @@ public class MainClass //you need a break (the last line of every case)
 		}
 		switch (method) {
 			case "a": 
-				while (method.equals("a"))
+				while (method.equals("a") || method.equals("A"))
 				{
 				System.out.println("Would you like to create 'c' a Checking account or 's' a Savings account?");
 				method = in.next();
 				in.nextLine();
-					switch(method)
-					{
+					switch(method) {
 					case "c":
 					{
 						System.out.println("What is your name?: ");
@@ -70,7 +65,7 @@ public class MainClass //you need a break (the last line of every case)
 							System.out.println("Invalid response, please try again (y/n)");
 							choice = in.nextLine();
 						}
-						else if (choice.equals("y"))
+						else if (choice.equals("y") || choice.equals("Y"))
 						{
 							System.out.println("How much would you like to deposit?:");
 							initialBal = in.nextLine();
@@ -92,8 +87,6 @@ public class MainClass //you need a break (the last line of every case)
 						
 						break;
 					}
-					}
-				}
 					case "s":
 					{
 						System.out.println("What is your name?: ");
@@ -105,7 +98,7 @@ public class MainClass //you need a break (the last line of every case)
 							System.out.println("Invalid response, please try again (y/n)");
 							choice = in.nextLine();
 						}
-						if(choice.equals("y"))
+						if(choice.equals("y") || choice.equals("Y"))
 						{
 							System.out.println("How much would you like to deposit?:");
 							initialBal = in.nextLine();
@@ -117,7 +110,7 @@ public class MainClass //you need a break (the last line of every case)
 								initialBal = in.nextLine();
 							}
 						}
-						else if (choice.equals("n"))
+						else if (choice.equals("n") || choice.equals("N"))
 						{
 							initialBal="0";
 							
@@ -128,7 +121,7 @@ public class MainClass //you need a break (the last line of every case)
 								initialBal = in.nextLine();
 							}
 							
-							double initialBalance = String.parseDouble(initialBal);
+							double initialBalance = Double.parseDouble(initialBal);
 							
 							balance= initialBalance + balance;
 						}
@@ -138,36 +131,30 @@ public class MainClass //you need a break (the last line of every case)
 						break;
 					}
 					
-		}
-				}
-			case "b":
-				while (method.equals("b"))
-				{
-				System.out.println();
-				}	 
-			case "c":
-			{
-				System.out.println("Terminated");
-			}
-		
-		}
-		
-	
-	
-}
-	}
-}
-	
-}
-	}
-}
-					
 					}
 				}
 			case "b":
-				while (method.equals("b"))
+				while (method.equals("b") || method.equals("B"))
 				{
-				System.out.println();
+				System.out.println("Would you like to make a transaction?: (y/n)");
+				String choice = in.nextLine();
+				if(!choice.equals("y") && !choice.equals("Y") && !choice.equals("n") && !choice.equals("N"));
+				{
+					System.out.println("Invalid response, please try again (y/n)");
+					choice = in.nextLine();
+				}
+				if(choice.equals("y") || choice.equals("Y"))
+				{
+					System.out.println("Would you like to make a (w) withdrawal, (d) deposit, (t) transfer, or (a) get account numbers?: ");
+					String response = in.nextLine();
+					
+					switch (response)
+					{
+					case "w"
+					{
+						//**stopped here
+					}
+					}
 				}	 
 			case "c":
 			{
