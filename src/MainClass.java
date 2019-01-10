@@ -21,6 +21,7 @@ public class MainClass //you need a break (the last line of every case)
 			return false;
 		}
 	}
+	
 	public static void main(String[] args)
 	{
 		ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
@@ -150,12 +151,138 @@ public class MainClass //you need a break (the last line of every case)
 					
 					switch (response)
 					{
-					case "w"
+					case "w":
 					{
-						//**stopped here
+						System.out.println("What is your bank account number?: ");
+						String account = in.nextLine();
+						isNumeric(account);
+						while(!isNumeric(account))
+						{
+							System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
+							account = in.nextLine();
+						}
+						double num = Double.parseDouble(account);
+						System.out.print("How much would you like to withdraw?: ");
+						String amt = in.nextLine();
+						isNumeric(amt);
+						while(!isNumeric(amt))
+						{
+							System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
+							amt = in .nextLine();
+						}
+						double amount = Double.parseDouble(amt);
+						
+						in.nextLine();
+						for (int i=0; i<accounts.size(); i++)
+						{
+							//**if (num == (accounts.get(i).getAccountNumber())
+							{
+								BankAccount accNum = accounts.get(i);
+								try
+								{
+									accounts.get(i).withdraw(amount);
+								}
+								catch (IllegalArgumentException e)
+								{
+									System.out.println("Your transaction was not authorized.");
+								}
+							}
+						}
+						break;
+					}
+					case "d":
+					
+						{
+							{
+								System.out.println("What is your bank account number?: ");
+								String account = in.nextLine();
+								isNumeric(account);
+								while(!isNumeric(account))
+								{
+									System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
+									account = in.nextLine();
+								}
+								double amount = Double.parseDouble(account);
+								in.nextLine();
+								for (int i=0; i<accounts.size(); i++)
+								{
+									//**if (num==(accounts.get(i).getAccountNumber()))
+									{
+										BankAccount accNum = accounts.get(i);
+										try
+										{
+											accounts.get(i).deposit(amount);
+										}
+										catch (IllegalArgumentException e)
+										{
+											System.out.println("Transaction not authorized");
+										}
+									}
+								}
+							}
+							break;
+						}
+					case "t":
+					{
+						System.out.println("What is your bank account number?: ");
+						String account = in.nextLine();
+						isNumeric(account);
+						while(!isNumeric(account))
+						{
+							System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
+							account = in.nextLine();
+						}
+						System.out.println("What is the other bank account number?: ");
+						String other = in.nextLine();
+						isNumeric(other);
+						while(!isNumeric(other))
+						{
+							System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
+							other = in.nextLine();
+						}
+						System.out.println("How much would you like to transfer?: ");
+						String amount= in.nextLine();
+						isNumeric(amount);
+						while(!isNumeric(amount))
+						{
+							System.out.println("Your transaction was not authorized.  Please enter a numerical value: ");
+							amount = in.nextLine();
+						}
+						double amt = Double.parseDouble(amount);
+						BankAccount accOther= null;
+						for (int i=0; i<accounts.size(); i++)
+						{
+							//**if (oth ==(accounts.get(i).getAccountNumber()))
+							{
+								BankAccount accNum = accounts.get(i);
+								accOther= accounts.get(i);
+							}
+						}
+						BankAccount firstAcc = null;
+						for (int x=0; x < accounts.size(); x++)
+						{
+							//**if (num ==(accounts.get(x).getAccountNumber()))
+							{
+								BankAccount accNum = accounts.get(x);
+								firstAcc = accounts.get(x);
+							}						
+						}
+						
+						try
+						{
+							firstAcc.transfer(accOther, amt);
+						}
+						catch (IllegalArgumentException e)
+						{
+							System.out.println("Transaction not authorized.");
+						}
+						break;
+				}
+
 					}
 					}
-				}	 
+					}
+					 
 			case "c":
 			{
 				System.out.println("Terminated");
