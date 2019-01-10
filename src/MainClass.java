@@ -1,12 +1,15 @@
 
 import java.util.ArrayList;
 
+
 import java.util.Scanner;
+
 /**
  * 
  * @author Daniel Han
  * PD 7
  */
+
 public class MainClass //you need a break (the last line of every case)
 {
 	private static boolean isNumeric (String str)
@@ -38,7 +41,7 @@ public class MainClass //you need a break (the last line of every case)
 		String initialBal = "";
 		double initialBalDouble = 0;
 		
-		{
+		//{
 		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'c' terminate this program?");
 		in.nextLine();
 		while(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
@@ -47,7 +50,8 @@ public class MainClass //you need a break (the last line of every case)
 			method = in.next();
 			in.nextLine();
 		}
-		switch (method) {
+		switch (method)
+		{
 			case "a": 
 				while (method.equals("a") || method.equals("A"))
 				{
@@ -134,7 +138,7 @@ public class MainClass //you need a break (the last line of every case)
 					
 					}
 				}
-			case "b":
+				case "b":
 				while (method.equals("b") || method.equals("B"))
 				{
 				System.out.println("Would you like to make a transaction?: (y/n)");
@@ -278,20 +282,64 @@ public class MainClass //you need a break (the last line of every case)
 						}
 						break;
 				}
-
+					case "n":
+					{
+						{
+							String decision = "go";
+							while(decision.equals("go"))
+							{
+								System.out.println("What is your name: ");
+								String name = in.nextLine();
+								System.out.println("The account numbers under your name are: ");
+								for (int i=0; i<accounts.size(); i++)
+								{
+									if (name.equals(accounts.get(i).getName()))
+									{
+										BankAccount account=accounts.get(i);
+										System.out.println(account.toString());
+										if (account instanceof CheckingAccount)
+										{
+											System.out.println("It is a checking account");
+										}
+										else
+										{
+											System.out.println("It is a savings account");
+										}
+										decision = "no";
+									}
+									else
+									{
+										System.out.println("That is not a valid name.");
+										decision = "go";
+									}
+								}
+							}
+							break;
+						}
+					}
+						default:
+						{
+							while((!response.equals("w"))&&(!response.equals("d"))&&(!response.equals("t"))&&(!response.equals("n"))) 	
+							{
+								System.out.println("Would you like to make a withdrawal, deposit, transfer, or get account numbers (w/d/t/n)?: ");
+								response = in.nextLine();
+							}
+						}
 					}
 					}
 					}
+					
 					 
 			case "c":
 			{
 				System.out.println("Terminated");
 			}
 		
+			
 		}
 		
 	
 	
 }
 	}
-}
+//}
