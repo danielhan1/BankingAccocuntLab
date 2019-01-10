@@ -43,8 +43,7 @@ public class MainClass //you need a break (the last line of every case)
 		
 		{
 		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'c' terminate this program?");
-		in.nextLine();
-		method = in.next();
+		method = in.nextLine();
 		switch(method)
 		{
 			case "a": 
