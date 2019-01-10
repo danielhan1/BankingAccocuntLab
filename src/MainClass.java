@@ -36,21 +36,16 @@ public class MainClass //you need a break (the last line of every case)
 		int FREE_TRANS = 10;
 		String method;
 		Scanner in = new Scanner(System.in);
-		method = in.next();
+		
 		double balance = 0;
 		String initialBal = "";
 		double initialBalDouble = 0;
 		
-		//{
+		{
 		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'c' terminate this program?");
 		in.nextLine();
-		while(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
-		{
-			System.out.println("Invalid. Please try again");
-			method = in.next();
-			in.nextLine();
-		}
-		switch (method)
+		method = in.next();
+		switch(method)
 		{
 			case "a": 
 				while (method.equals("a") || method.equals("A"))
@@ -334,7 +329,12 @@ public class MainClass //you need a break (the last line of every case)
 			{
 				System.out.println("Terminated");
 			}
-		
+			while(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
+			{
+				System.out.println("Invalid. Please try again");
+				method = in.next();
+				in.nextLine();
+			}
 			
 		}
 		
@@ -342,4 +342,4 @@ public class MainClass //you need a break (the last line of every case)
 	
 }
 	}
-//}
+}
