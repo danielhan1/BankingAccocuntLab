@@ -47,7 +47,13 @@ public class MainClass //you need a break (the last line of every case)
 		switch(method)
 		{
 			case "a": 
-				while (method.equals("a") || method.equals("A"))
+				if(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
+				{
+					System.out.println("Invalid. Please try again:");
+					method = in.next();
+					in.nextLine();
+				}
+				if (method.equals("a") || method.equals("A"))
 				{
 				System.out.println("Would you like to create 'c' a Checking account or 's' a Savings account?");
 				method = in.next();
@@ -137,11 +143,8 @@ public class MainClass //you need a break (the last line of every case)
 				{
 				System.out.println("Would you like to make a transaction?: (y/n)");
 				String choice = in.nextLine();
-				if(!choice.equals("y") && !choice.equals("Y") && !choice.equals("n") && !choice.equals("N"));
 				{
-					System.out.println("Invalid response, please try again (y/n)");
-					choice = in.nextLine();
-				}
+}
 				if(choice.equals("y") || choice.equals("Y"))
 				{
 					System.out.println("Would you like to make a (w) withdrawal, (d) deposit, (t) transfer, or (a) get account numbers?: ");
@@ -276,7 +279,7 @@ public class MainClass //you need a break (the last line of every case)
 						}
 						break;
 				}
-					case "n":
+					case "a":
 					{
 						{
 							String decision = "go";
@@ -315,25 +318,25 @@ public class MainClass //you need a break (the last line of every case)
 						{
 							while((!response.equals("w"))&&(!response.equals("d"))&&(!response.equals("t"))&&(!response.equals("n"))) 	
 							{
-								System.out.println("Would you like to make a withdrawal, deposit, transfer, or get account numbers (w/d/t/n)?: ");
+								System.out.println("Would you like to make a withdrawal, deposit, transfer, or get account numbers (w/d/t/a)?: ");
 								response = in.nextLine();
 							}
 						}
 					}
 					}
+				if(!choice.equals("y") || !choice.equals("Y") || !choice.equals("n") || !choice.equals("N"));
+				{
+					System.out.println("Invalid response, please try again (y/n)");
+					choice = in.nextLine();
+				
 					}
-					
+				}
 					 
 			case "c":
 			{
 				System.out.println("Terminated");
 			}
-			while(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
-			{
-				System.out.println("Invalid. Please try again");
-				method = in.next();
-				in.nextLine();
-			}
+			
 			
 		}
 		
