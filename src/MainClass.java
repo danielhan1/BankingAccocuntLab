@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 
 
+
 import java.util.Scanner;
 
 /**
@@ -40,19 +41,35 @@ public class MainClass //you need a break (the last line of every case)
 		double balance = 0;
 		String initialBal = "";
 		double initialBalDouble = 0;
+		boolean contRunning = true;
 		
+		while(contRunning)
 		{
-		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'c' terminate this program?");
+		
+		System.out.println("Do you want to 'a' add an account, 'b' make a transaction, or 'x' terminate this program?");
 		method = in.nextLine();
+		
+		while(!method.equals("a") && !method.equals("b") && !method.equals("x") && !method.equals("A") && !method.equals("B") && !method.equals("X"))
+		{
+			System.out.println("Invalid. Please try again");
+			method = in.next();
+			in.nextLine();
+		}
 		switch(method)
 		{
 			case "a": 
-				while (method.equals("a") || method.equals("A"))
-				{
 				System.out.println("Would you like to create 'c' a Checking account or 's' a Savings account?");
-				method = in.next();
+				String checkingSavings = in.next();
 				in.nextLine();
-					switch(method) {
+				while(!checkingSavings.equals("c") && !checkingSavings.equals("C") && !checkingSavings.equals("s") && !checkingSavings.equals("S"))
+				{
+					System.out.println("Invalid. Please try again");
+					method = in.next();
+					in.nextLine();
+				
+				}
+					switch(checkingSavings)
+					{
 					case "c":
 					{
 						System.out.println("What is your name?: ");
@@ -131,18 +148,18 @@ public class MainClass //you need a break (the last line of every case)
 					}
 					
 					}
-				}
+				break;
+				
 				case "b":
-				while (method.equals("b") || method.equals("B"))
-				{
+				
 				System.out.println("Would you like to make a transaction?: (y/n)");
-				String choice = in.nextLine();
-				if(!choice.equals("y") && !choice.equals("Y") && !choice.equals("n") && !choice.equals("N"));
+				String transactionChoice = in.nextLine();
+				if(!transactionChoice.equals("y") && !transactionChoice.equals("Y") && !transactionChoice.equals("n") && !transactionChoice.equals("N"))
 				{
 					System.out.println("Invalid response, please try again (y/n)");
-					choice = in.nextLine();
+					transactionChoice = in.nextLine();
 				}
-				if(choice.equals("y") || choice.equals("Y"))
+				if(transactionChoice.equals("y") || transactionChoice.equals("Y"))
 				{
 					System.out.println("Would you like to make a (w) withdrawal, (d) deposit, (t) transfer, or (a) get account numbers?: ");
 					String response = in.nextLine();
@@ -173,7 +190,7 @@ public class MainClass //you need a break (the last line of every case)
 						in.nextLine();
 						for (int i=0; i<accounts.size(); i++)
 						{
-							//**if (num == (accounts.get(i).getAccountNumber())
+							if (num == (accounts.get(i).getAccountNumber()))
 							{
 								BankAccount accNum = accounts.get(i);
 								try
@@ -188,6 +205,7 @@ public class MainClass //you need a break (the last line of every case)
 						}
 						break;
 					}
+					
 					case "d":
 					
 						{
@@ -204,7 +222,7 @@ public class MainClass //you need a break (the last line of every case)
 								in.nextLine();
 								for (int i=0; i<accounts.size(); i++)
 								{
-									//**if (num==(accounts.get(i).getAccountNumber()))
+									if (amount==(accounts.get(i).getAccountNumber()))
 									{
 										BankAccount accNum = accounts.get(i);
 										try
@@ -220,6 +238,7 @@ public class MainClass //you need a break (the last line of every case)
 							}
 							break;
 						}
+					
 					case "t":
 					{
 						System.out.println("What is your bank account number?: ");
@@ -250,7 +269,7 @@ public class MainClass //you need a break (the last line of every case)
 						BankAccount accOther= null;
 						for (int i=0; i<accounts.size(); i++)
 						{
-							//**if (oth ==(accounts.get(i).getAccountNumber()))
+							if (amt ==(accounts.get(i).getAccountNumber()))
 							{
 								BankAccount accNum = accounts.get(i);
 								accOther= accounts.get(i);
@@ -259,7 +278,7 @@ public class MainClass //you need a break (the last line of every case)
 						BankAccount firstAcc = null;
 						for (int x=0; x < accounts.size(); x++)
 						{
-							//**if (num ==(accounts.get(x).getAccountNumber()))
+							if (amt ==(accounts.get(x).getAccountNumber()))
 							{
 								BankAccount accNum = accounts.get(x);
 								firstAcc = accounts.get(x);
@@ -276,6 +295,7 @@ public class MainClass //you need a break (the last line of every case)
 						}
 						break;
 				}
+					
 					case "n":
 					{
 						{
@@ -311,6 +331,7 @@ public class MainClass //you need a break (the last line of every case)
 							break;
 						}
 					}
+					
 						default:
 						{
 							while((!response.equals("w"))&&(!response.equals("d"))&&(!response.equals("t"))&&(!response.equals("n"))) 	
@@ -321,24 +342,20 @@ public class MainClass //you need a break (the last line of every case)
 						}
 					}
 					}
-					}
+					
 					
 					 
-			case "c":
+			case "x":
 			{
 				System.out.println("Terminated");
+				contRunning = false;
 			}
-			while(!method.equals("a") && !method.equals("b") && !method.equals("c") && !method.equals("A") && !method.equals("B") && !method.equals("C"));
-			{
-				System.out.println("Invalid. Please try again");
-				method = in.next();
-				in.nextLine();
-			}
+			
 			
 		}
 		
+		}
 	
-	
-}
+
 	}
 	}
